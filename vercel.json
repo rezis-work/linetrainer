@@ -2,8 +2,26 @@
   "version": 1,
   "rewrites": [
     {
-      "source": "/((?!api/).*)",
-      "destination": "/index.html"
+      "source": "/sign-in/:path*",
+      "destination": "/sign-in/[[...sign-in]]/:path*"
+    },
+    {
+      "source": "/",
+      "destination": "/sign-in"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/sign-in(.*)",
+      "dest": "/sign-in/[[...sign-in]]",
+      "headers": {
+        "Cache-Control": "no-store"
+      }
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1",
+      "continue": true
     }
   ]
 }
