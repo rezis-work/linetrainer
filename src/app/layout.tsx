@@ -18,6 +18,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "LineTrainer",
   description: "A modern fitness AI plat",
+  icons: {
+    icon: "/linelogo.png",
+  },
 };
 
 export default function RootLayout({
