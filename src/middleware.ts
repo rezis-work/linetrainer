@@ -4,13 +4,13 @@ import { NextResponse } from "next/server";
 const isPublicRoute = createRouteMatcher(["/sign-in(.*)", "/sign-up(.*)", "/"]);
 
 export default clerkMiddleware(async (auth, req) => {
+  console.log("Middleware running for:", req.url);
   if (!isPublicRoute(req)) {
     const authObject = await auth();
     if (!authObject.userId) {
       return NextResponse.redirect(new URL("/sign-in", req.url));
     }
   }
-  return NextResponse.next();
 });
 
 export const config = {

@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.15.1",
+    "@clerk/nextjs": "^6.16.0",
     "@radix-ui/react-slot": "^1.2.0",
     "@vapi-ai/web": "^2.2.5",
     "class-variance-authority": "^0.7.1",

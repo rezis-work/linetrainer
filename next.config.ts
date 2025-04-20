@@ -5,11 +5,15 @@ const nextConfig: NextConfig = {
 };
 
 module.exports = {
-  experimental: {
-    turbo: false,
-  },
   images: {
-    domains: ["randomuser.me"],
+    remotePatterns: [
+      {
+        hostname: "randomuser.me",
+      },
+      {
+        hostname: "img.clerk.com",
+      },
+    ],
   },
 };
 

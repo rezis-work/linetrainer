@@ -1,12 +1,14 @@
+"use client";
 import Link from "next/link";
 import { DumbbellIcon, HomeIcon, UserIcon } from "lucide-react";
-import { currentUser } from "@clerk/nextjs/server";
+// import { currentUser } from "@clerk/nextjs/server";
 import { Button } from "./ui/button";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, useUser } from "@clerk/nextjs";
 import Image from "next/image";
 
-const Navbar = async () => {
-  const user = await currentUser();
+const Navbar = () => {
+  const { isSignedIn } = useUser();
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/60 backdrop-blur-md border-b border-border py-3">
       <div className="container mx-auto flex items-center justify-between px-2 md:px-0">
@@ -25,7 +27,7 @@ const Navbar = async () => {
 
         {/* Navigation */}
         <nav className="flex items-center gap-5">
-          {user ? (
+          {isSignedIn ? (
             // Signed in
             <>
               <Link
