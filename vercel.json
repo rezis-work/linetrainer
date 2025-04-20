@@ -9,19 +9,5 @@
       "source": "/",
       "destination": "/sign-in"
     }
-  ],
-  "routes": [
-    {
-      "src": "/sign-in(.*)",
-      "dest": "/sign-in/[[...sign-in]]",
-      "headers": {
-        "Cache-Control": "no-store"
-      }
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1",
-      "continue": true
-    }
   ]
 }
