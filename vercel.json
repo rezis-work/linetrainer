@@ -1,4 +1,8 @@
 {
-  "version": 1,
-  "rewrites": [{ "source": "/", "destination": "/sign-in" }]
+  "rewrites": [
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ]
 }
