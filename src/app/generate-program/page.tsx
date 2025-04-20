@@ -22,6 +22,29 @@ const GenerateProgramPage = () => {
   const messageContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const originalError = console.error;
+    // override console.error to ignore "Meeting has ended" errors
+    console.error = function (msg, ...args) {
+      if (
+        msg &&
+        (msg.includes("Meeting has ended") ||
+          (args[0] && args[0].toString().includes("Meeting has ended")))
+      ) {
+        console.log("Ignoring known error: Meeting has ended");
+        return; // don't pass to original handler
+      }
+
+      // pass all other errors to the original handler
+      return originalError.call(console, msg, ...args);
+    };
+
+    // restore original handler on unmount
+    return () => {
+      console.error = originalError;
+    };
+  }, []);
+
+  useEffect(() => {
     const handleCallStart = () => {
       console.log("Call started");
       setConnecting(false);
@@ -49,8 +72,13 @@ const GenerateProgramPage = () => {
         setMessages((prevMessages) => [...prevMessages, newMessage]);
       }
     };
-    const handleError = (error: string) => {
-      console.error("VAPI Error", error);
+    const handleError = (error: any) => {
+      console.error("VAPI Error Details:", {
+        message: error?.message, // Check for a message
+        code: error?.code, // Check for an error code
+        stack: error?.stack, // Check for a stack trace
+        raw: error, // Log the raw object
+      });
       setConnecting(false);
       setCallActive(false);
     };
@@ -94,7 +122,11 @@ const GenerateProgramPage = () => {
   }, [callEnded, router]);
 
   // setup event listeners
-  useEffect(() => {}, []);
+  useEffect(() => {
+    return () => {
+      vapi.removeAllListeners();
+    };
+  }, []);
 
   const toggleCall = async () => {
     if (callActive) {
