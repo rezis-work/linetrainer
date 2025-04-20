@@ -72,7 +72,7 @@ const HomePage = () => {
                   className="overflow-hidden bg-primary text-primary-foreground px-8 py-6 text-lg font-medium"
                 >
                   <Link
-                    href={"/sign-in"}
+                    href={"/generate-program"}
                     className="flex items-center font-mono"
                   >
                     Build Your Program
