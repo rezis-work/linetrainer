@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ],
+  "env": {
+    "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY": "@next_public_clerk_publishable_key",
+    "CLERK_SECRET_KEY": "@clerk_secret_key",
+    "NEXT_PUBLIC_CLERK_SIGN_IN_URL": "@next_public_clerk_sign_in_url",
+    "NEXT_PUBLIC_CLERK_SIGN_UP_URL": "@next_public_clerk_sign_up_url",
+    "NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL": "@next_public_clerk_sign_in_fallback_redirect_url",
+    "NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL": "@next_public_clerk_sign_up_fallback_redirect_url",
+    "NEXT_PUBLIC_VAPI_WORKFLOW_ID": "@next_public_vapi_workflow_id",
+    "NEXT_PUBLIC_VAPI_API_KEY": "@next_public_vapi_api_key",
+    "NEXT_PUBLIC_VAPI_API_PRIVATE_KEY": "@next_public_vapi_api_private_key",
+    "CONVEX_DEPLOYMENT": "@convex_deployment",
+    "NEXT_PUBLIC_CONVEX_URL": "@next_public_convex_url"
+  }
+}
