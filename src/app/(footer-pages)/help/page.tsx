@@ -1,0 +1,68 @@
+'use client'
+
+import FaqItem from "@/components/FaqItem";
+import { useState } from "react";
+
+const Help = () => {
+
+    const faqData = [
+        {
+            question: "What is Nerko's NFT Collection?",
+            answer: "Duis aute irure dolor in reprehenderit in",
+        },
+        {
+            question: "How we can buy and invest NFT?",
+            answer: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.",
+        },
+        {
+            question: "Why we should choose Nerko's NFT?",
+            answer: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.",
+        },
+        {
+            question: "Where we can buy and sell NFts?",
+            answer: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.",
+        },
+        {
+            question: "Where we can buy and sell NFts?",
+            answer: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat proident.",
+        },
+        {
+            question: "What is your contract address?",
+            answer: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor reprehenderit.",
+        },
+    ];
+
+    const [openItem, setOpenItem] = useState(0);
+
+    const toggle = (index: number) => {
+        setOpenItem(index);
+    }
+
+    return (
+        <section className="faq py-[32px] flex items-center justify-center">
+            <div className="faq__container px-[15px] max-w-[1200px] flex flex-col items-center justify-center min-[640px]:px-[30px] min-[961px]:max-w-[680px]">
+                <header>
+                    <h2 className="faq__title text-[#f3f2f4] text-[32px]">FAQ</h2>
+                </header>
+                <div className="faq__content mt-[32px] min-[960px]:mt-[80px]">
+                    <ul className="p-[24px] bg-[#ffffff0d] rounded-[8px]">
+                        {faqData.map((data, index) => {
+                            return (
+                                <FaqItem
+                                    key={index}
+                                    question={data.question}
+                                    answer={data.answer}
+                                    index={index}
+                                    isOpen={index === openItem}
+                                    toggle={() => toggle(index)}
+                                />
+                            );
+                        })}
+                    </ul>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+export default Help
