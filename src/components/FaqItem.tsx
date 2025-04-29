@@ -26,7 +26,7 @@ const FaqItem = ({
         {isOpen ? (
           <Minus className="w-[26px] h-[26px]" color="#b7b4bb" strokeWidth={1} />
         ) : (
-          <Plus className="w-[26px] h-[26px]" color="#b7b4bb" strokeWidth={1} />
+          <Plus className="w-[26px] h-[26px]" color="#b7b4bb" strokeWidth={1}/>
         )}
       </a>
       <Collapse isOpened={isOpen}>
