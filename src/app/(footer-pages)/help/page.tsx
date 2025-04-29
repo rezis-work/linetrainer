@@ -42,10 +42,10 @@ const Help = () => {
         <section className="faq py-[32px] flex items-center justify-center">
             <div className="faq__container px-[15px] max-w-[1200px] flex flex-col items-center justify-center min-[640px]:px-[30px] min-[961px]:max-w-[680px]">
                 <header>
-                    <h2 className="faq__title text-[#f3f2f4] text-[32px]">FAQ</h2>
+                    <h2 className="faq__title font-bold text-[#f3f2f4] text-[32px] min-[961px]:text-[64px]/[1]">FAQ</h2>
                 </header>
                 <div className="faq__content mt-[32px] min-[960px]:mt-[80px]">
-                    <ul className="p-[24px] bg-[#ffffff0d] rounded-[8px]">
+                    <ul className="p-[24px] bg-amber-500 rounded-[8px]">
                         {faqData.map((data, index) => {
                             return (
                                 <FaqItem
