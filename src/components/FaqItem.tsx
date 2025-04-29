@@ -19,14 +19,14 @@ const FaqItem = ({
   return (
     <li>
       <a
-        className={`cursor-pointer flex justify-between items-center text-[16px] min-[960px]:text-[22px] ${index > 0 ? "mt-[20px] pt-[20px] border-t border-solid border-[#82828240]" : ""}`}
+        className={`cursor-pointer font-bold flex justify-between items-center text-[16px] min-[960px]:text-[22px] ${index > 0 ? "mt-[20px] pt-[20px] border-t border-solid border-[card/90]" : ""}`}
         onClick={toggle}
       >
         {question}
         {isOpen ? (
-          <Minus className="w-[26px] h-[26px]" color="#b7b4bb"/>
+          <Minus className="w-[26px] h-[26px]" color="#b7b4bb" strokeWidth={1} />
         ) : (
-          <Plus className="w-[26px] h-[26px]" color="#b7b4bb"/>
+          <Plus className="w-[26px] h-[26px]" color="#b7b4bb" strokeWidth={1} />
         )}
       </a>
       <Collapse isOpened={isOpen}>
