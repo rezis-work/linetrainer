@@ -4,6 +4,7 @@ import "./globals.css";
 import ConvexClerkProvider from "@/providers/ConvexClerkProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ToastWrapper from "@/components/ToastWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,6 +46,9 @@ export default function RootLayout({
 
           {/* Main Application */}
           <main className="pt-24 flex-grow">{children}</main>
+
+          {/* Toast */}
+          <ToastWrapper /> 
 
           {/* Footer Components */}
           <Footer />
